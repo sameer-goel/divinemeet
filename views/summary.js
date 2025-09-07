@@ -1,6 +1,31 @@
 import { getMeet, listActivitiesByMeet, listPicksByMeet, listReflectionsByMeet, getLatestSummary, saveSummary } from '../db/repo.js';
 import * as logic from '../logic/logic.js';
 
+function formatSummaryTable(summary) {
+  return `DIVINE DECODED SUMMARY
+
+Divine Code: ${summary.code}
+Generated: ${new Date(summary.generatedAt).toLocaleString()}
+
+METRICS
+-------
+Total Activities: ${summary.metrics.totalActivities}
+Total Time: ${summary.metrics.totalTimeMin} minutes
+Top Tags: ${summary.metrics.topTags.join(', ') || 'None'}
+
+ACTIVITY FREQUENCY
+------------------
+${Object.entries(summary.metrics.activityFrequency).map(([id, count]) => `${id}: ${count}x`).join('\n') || 'No activities'}
+
+PATTERNS DETECTED
+-----------------
+${summary.patterns.map(p => `• ${p.pattern}: ${JSON.stringify(p.evidence)}`).join('\n') || 'No patterns found'}
+
+COSMIC NARRATIVE
+----------------
+${summary.narrative}`;
+}
+
 export async function render({ params, navigate }) {
   const { meetId } = params;
   if (!meetId) return msg('Missing meetId');
@@ -33,7 +58,7 @@ export async function render({ params, navigate }) {
   card.className = 'card col';
   card.innerHTML = `
     <div class="row" style="justify-content:space-between;align-items:center">
-      <div class="muted">Seed <span class="mono">${meet.seed ?? '-'}</span></div>
+      <div></div>
       <div class="row">
         <button class="primary" id="gen">Generate</button>
       </div>

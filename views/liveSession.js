@@ -33,7 +33,7 @@ export async function render({ params, navigate }) {
   live.className = 'card col';
   live.innerHTML = `
     <div class="row" style="justify-content:space-between">
-      <div class="col"><div class="muted">Seed</div><div class="mono">${(meet.seed ?? '(missing)')}</div></div>
+      <div></div>
       <div class="row">
         <button class="secondary" id="beginBtn">Begin</button>
         <button class="secondary" id="endBtn">End</button>

@@ -31,7 +31,7 @@ function corePickNext(activities, history, seed, nowMs) {
   const eligibleActivities = eligible(activities, history);
   if (eligibleActivities.length === 0) return null;
   
-  const round = history.length;
+  const round = history.length + 1;
   const randomValue = rng(seed, round);
   const index = Math.floor(randomValue * eligibleActivities.length);
   const chosen = eligibleActivities[index];
@@ -75,7 +75,7 @@ function coreMakeSummary(meet) {
   meet.picks.forEach(pick => {
     activityFreq[pick.activityId] = (activityFreq[pick.activityId] || 0) + 1;
     
-    if (pick.round === 0) {
+    if (pick.round === 1) {
       firstPickDist[pick.activityId] = (firstPickDist[pick.activityId] || 0) + 1;
     }
     
