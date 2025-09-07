@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Dvine Meet</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/dexie@4/+esm">
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav">
+        <a class="brand" href="#/dashboard">Dvine Meet</a>
+        <div class="spacer"></div>
+        <a class="navlink" href="#/dashboard">Dashboard</a>
+        <a class="navlink" href="#/create">Create</a>
+        <button id="exportBtn" class="icon-btn" title="Export JSON" aria-label="Export JSON">⤓</button>
+        <label class="icon-btn upload" title="Import JSON" aria-label="Import JSON">
+          ⤒
+          <input id="importInput" type="file" accept="application/json" hidden />
+        </label>
+      </nav>
+    </header>
+    <main id="app" class="app"></main>
+    <footer class="bottombar">
+      <small>Works offline. Data stays on this device.</small>
+    </footer>
+    <noscript>This app requires JavaScript.</noscript>
+    <script type="module" src="./app.js"></script>
+  </body>
+  
+</html>
+

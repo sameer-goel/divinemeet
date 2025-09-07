@@ -1,0 +1,27 @@
+{
+  "randomness": {
+    "algorithm": "FNV-1a",
+    "fairnessThreshold": 0.95,
+    "distributionTolerance": 0.05,
+    "testSimulations": 50000
+  },
+  "constraints": {
+    "preventImmediateRepeats": true,
+    "maxConsecutiveRepeats": 0
+  },
+  "patterns": {
+    "minRepeatThreshold": 2,
+    "maxTopTags": 3,
+    "narrativeVariations": 3
+  },
+  "validation": {
+    "requiredMeetFields": ["meetId", "seed", "activities", "picks", "reflections"],
+    "requiredActivityFields": ["id", "title"],
+    "requiredPickFields": ["id", "activityId"]
+  },
+  "performance": {
+    "maxActivities": 1000,
+    "maxPicks": 10000,
+    "maxReflections": 10000
+  }
+}
